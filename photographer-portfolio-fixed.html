@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мар'яна Коваль — Фотограф | Love Story & Весілля</title>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+
+        :root {
+            --dark: #0f1419;
+            --gold: #d4af37;
+            --white: #ffffff;
+            --light-gray: #e8e8e8;
+            --text-gray: #a0a0a0;
+        }
+
+        html { 
+            scroll-behavior: smooth; 
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: var(--dark); 
+            color: var(--white); 
+            line-height: 1.6; 
+            overflow-x: hidden; 
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* ===== HEADER ===== */
+        header { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            z-index: 1000; 
+            background: rgba(15, 20, 25, 0.95); 
+            backdrop-filter: blur(10px); 
+            padding: 1.5rem 2rem; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .logo { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: var(--gold); 
+            white-space: nowrap; 
+            letter-spacing: 2px;
+        }
+
+        .nav-links { 
+            display: flex; 
+            gap: 2.5rem; 
+            list-style: none; 
+        }
+
+        .nav-links a { 
+            color: var(--white); 
+            text-decoration: none; 
+            font-size: 0.95rem; 
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .cta-header { 
+            background: var(--gold); 
+            color: var(--dark); 
+            padding: 0.7rem 1.8rem; 
+            border-radius: 25px; 
+            border: none; 
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        @media (max-width: 768px) { 
+            .nav-links { display: none; } 
+            header { padding: 1rem 1.5rem; }
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero { 
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            background: linear-gradient(rgba(15, 20, 25, 0.5), rgba(15, 20, 25, 0.5)), url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2000&fit=crop') center/cover fixed;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero-title { 
+            font-size: 4rem; 
+            margin: 1rem 0; 
+            color: var(--white);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            color: var(--light-gray);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-button { 
+            display: inline-block;
+            margin-top: 1rem; 
+            padding: 1.2rem 2.5rem; 
+            background: var(--gold); 
+            color: var(--dark); 
+            border: none; 
+            border-radius: 30px; 
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer; 
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                margin-top: 60px;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-description {
+                font-size: 1rem;
+            }
+        }
+
+        /* ===== PORTFOLIO SECTION ===== */
+        .portfolio { 
+            padding: 5rem 2rem; 
+            background: var(--dark);
+            min-height: 100vh;
+        }
+
+        .portfolio h2 {
+            text-align: center; 
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .portfolio-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .portfolio-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 2rem; 
+            max-width: 1400px; 
+            margin: 0 auto;
+        }
+
+        .portfolio-item { 
+            position: relative; 
+            overflow: hidden; 
+            border-radius: 8px; 
+            aspect-ratio: 4/5;
+            cursor: pointer;
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+
+        .portfolio-item:nth-child(1) { animation-delay: 0.3s; }
+        .portfolio-item:nth-child(2) { animation-delay: 0.4s; }
+        .portfolio-item:nth-child(3) { animation-delay: 0.5s; }
+        .portfolio-item:nth-child(4) { animation-delay: 0.6s; }
+        .portfolio-item:nth-child(5) { animation-delay: 0.7s; }
+        .portfolio-item:nth-child(6) { animation-delay: 0.8s; }
+
+        .portfolio-image { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: block;
+        }
+
+        .portfolio-item:hover .portfolio-image { 
+            transform: scale(1.08); 
+        }
+
+        .portfolio-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: var(--gold);
+            padding: 2rem 1.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-label {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .portfolio {
+                padding: 3rem 1rem;
+            }
+            .portfolio h2 {
+                font-size: 2rem;
+            }
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about { 
+            padding: 5rem 2rem; 
+            max-width: 1200px; 
+            margin: 0 auto;
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 4rem; 
+            align-items: center;
+            min-height: 70vh;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about img {
+            width: 100%;
+            border-radius: 8px;
+            display: block;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .about-text {
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        @media (max-width: 768px) {
+            .about {
+                grid-template-columns: 1fr;
+                padding: 3rem 1rem;
+                min-height: auto;
+            }
+            .about h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact { 
+            padding: 5rem 2rem; 
+            max-width: 700px; 
+            margin: 0 auto;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .contact h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--white);
+        }
+
+        .contact-form {
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        input, 
+        textarea, 
+        select { 
+            width: 100%; 
+            padding: 1rem; 
+            background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(212, 175, 55, 0.3); 
+            color: white;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        input:focus, 
+        textarea:focus,
+        select:focus { 
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.05);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn { 
+            width: 100%; 
+            padding: 1.2rem; 
+            background: var(--gold); 
+            color: var(--dark);
+            border: none; 
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .social-section {
+            text-align: center;
+            margin-top: 3rem;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .social-section h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: inline-block;
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--dark);
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .contact {
+                padding: 3rem 1rem;
+            }
+            .contact h2 {
+                font-size: 1.8rem;
+            }
+            .social-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: rgba(15, 20, 25, 0.8);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* ===== SCROLL REVEAL ===== */
+        .scroll-hidden {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .scroll-visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">МК</div>
+    <ul class="nav-links">
+        <li><a href="#portfolio">Роботи</a></li>
+        <li><a href="#about">Про мене</a></li>
+        <li><a href="#contact">Контакти</a></li>
+    </ul>
+    <button class="cta-header" onclick="smoothScroll('#contact')">Записатись</button>
+</header>
+
+<!-- BLOCK 1: HERO -->
+<section class="hero" id="hero">
+    <div class="hero-content">
+        <p class="hero-subtitle">Фотографія • Київ</p>
+        <h1 class="hero-title">СТОП-КАДР</h1>
+        <p class="hero-description">Збережіть Вашу Історію в Моментах</p>
+        <button class="cta-button" onclick="smoothScroll('#portfolio')">Дивитись роботи</button>
+    </div>
+</section>
+
+<!-- BLOCK 2: PORTFOLIO -->
+<section id="portfolio" class="portfolio">
+    <h2>Вибрані Роботи</h2>
+    <p class="portfolio-subtitle">Кінематографічна зйомка для людей, брендів та подій</p>
+    
+    <div class="portfolio-grid">
+        <div class="portfolio-item">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600&fit=crop" alt="Love Story" class="portfolio-image">
+            <div class="portfolio-label">Love Story</div>
+        </div>
+
+        <div class="portfolio-item">
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=600&fit=crop" alt="Весілля" class="portfolio-image">
+            <div class="portfolio-label">Весілля</div>
+        </div>
+
+        <div class="portfolio-item">
+            <img src="https://images.unsplash.com/photo-1494942820986-dd71d4fa5a22?q=80&w=600&fit=crop" alt="Портрети" class="portfolio-image">
+            <div class="portfolio-label">Портрети</div>
+        </div>
+
+        <div class="portfolio-item">
+            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=600&fit=crop" alt="Сімейна зйомка" class="portfolio-image">
+            <div class="portfolio-label">Сімейна</div>
+        </div>
+
+        <div class="portfolio-item">
+            <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=600&fit=crop" alt="Корпоративи" class="portfolio-image">
+            <div class="portfolio-label">Корпоративи</div>
+        </div>
+
+        <div class="portfolio-item">
+            <img src="https://images.unsplash.com/photo-1537633552985-caf3f54e3b5f?q=80&w=600&fit=crop" alt="События" class="portfolio-image">
+            <div class="portfolio-label">События</div>
+        </div>
+    </div>
+</section>
+
+<!-- BLOCK 3: ABOUT -->
+<section id="about" class="about scroll-hidden">
+    <div>
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&fit=crop" alt="Портрет фотографа">
+    </div>
+    <div class="about-text">
+        <h2>Моя Філософія</h2>
+        <p>Я знімаю не позування, а щирі емоції. Кожне фото — це жива історія, яку ви захочете згадувати роками.</p>
+        <p>Мій стиль — це кінематографічна композиція плюс репортажна щирість. Природне світло, жива атмосфера, без дешевих фільтрів.</p>
+        <p>Вірю, що найкращі моменти — це ті, коли люди забувають про камеру. Саме тоді народжуються справжні шедеври.</p>
+    </div>
+</section>
+
+<!-- BLOCK 4: CONTACT -->
+<section id="contact" class="contact scroll-hidden">
+    <h2>Давайте Зробимо Це</h2>
+    
+    <form class="contact-form" action="https://formspree.io/f/mvoelzlg" method="POST">
+        <div class="form-group">
+            <label for="name">Ваше ім'я</label>
+            <input type="text" id="name" name="name" placeholder="Наприклад, Аня" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="service">Тип зйомки</label>
+            <select id="service" name="service" required>
+                <option value="">Виберіть послугу</option>
+                <option value="love-story">Love Story</option>
+                <option value="wedding">Весілля</option>
+                <option value="family">Сімейна зйомка</option>
+                <option value="portrait">Портрет</option>
+                <option value="corporate">Бізнес-фото</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="message">Ваше повідомлення</label>
+            <textarea id="message" name="message" placeholder="Розкажіть про вашу ідею..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Відправити Запит</button>
+    </form>
+
+    <div class="social-section">
+        <h3>Або напишіть мені</h3>
+        <div class="social-links">
+            <a href="https://instagram.com" target="_blank">📷 Instagram</a>
+            <a href="https://telegram.me/marianakvl" target="_blank">✈️ Telegram</a>
+            <a href="mailto:mariana@email.com">✉️ Email</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2024 Мар'яна Коваль • Фотограф. Всі права захищені.</p>
+</footer>
+
+<script>
+    // Smooth scroll функція
+    function smoothScroll(targetId) {
+        const element = document.querySelector(targetId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    // Scroll reveal анімація
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.remove('scroll-hidden');
+                entry.target.classList.add('scroll-visible');
+                scrollObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    // Спостереження за елементами
+    document.querySelectorAll('.scroll-hidden').forEach(el => {
+        scrollObserver.observe(el);
+    });
+
+    // Nav links smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            smoothScroll(this.getAttribute('href'));
+        });
+    });
+</script>
+
+</body>
+</html>
